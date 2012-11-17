@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{116D9CAC-0C8C-466D-825A-A60BD026A747}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>OpenCTM</RootNamespace>
+    <AssemblyName>OpenCTM</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <Externalconsole>true</Externalconsole>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="compression\CommonAlgorithm.cs" />
+    <Compile Include="data\Grid.cs" />
+    <Compile Include="io\CtmInputStream.cs" />
+    <Compile Include="errorhandling\EOFException.cs" />
+    <Compile Include="errorhandling\BadFormatException.cs" />
+    <Compile Include="errorhandling\InvalidDataException.cs" />
+    <Compile Include="io\CtmOutputstream.cs" />
+    <Compile Include="data\AttributeData.cs" />
+    <Compile Include="data\Mesh.cs" />
+    <Compile Include="data\SortableVertex.cs" />
+    <Compile Include="data\Triangle.cs" />
+    <Compile Include="compression\MeshDecoder.cs" />
+    <Compile Include="compression\MeshEncoder.cs" />
+    <Compile Include="io\MeshInfo.cs" />
+    <Compile Include="io\CtmFileReader.cs" />
+    <Compile Include="compression\RawDecoder.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ProjectExtensions>
+    <MonoDevelop>
+      <Properties>
+        <Deployment.LinuxDeployData generateScript="false" />
+      </Properties>
+    </MonoDevelop>
+  </ProjectExtensions>
+  <ItemGroup>
+    <Folder Include="compression\" />
+    <Folder Include="data\" />
+    <Folder Include="io\" />
+    <Folder Include="errorhandling\" />
+  </ItemGroup>
+</Project>
