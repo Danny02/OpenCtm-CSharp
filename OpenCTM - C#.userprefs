@@ -1,9 +1,13 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenCTM/compression/RawDecoder.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenCTM/compression/MG2Encoder.cs">
     <Files>
-      <File FileName="OpenCTM/compression/RawDecoder.cs" Line="50" Column="85" />
-      <File FileName="OpenCTM/io/CtmFileReader.cs" Line="10" Column="85" />
+      <File FileName="OpenCTM/compression/RawDecoder.cs" Line="59" Column="24" />
+      <File FileName="OpenCTM/compression/MG1Encoder.cs" Line="5" Column="32" />
+      <File FileName="OpenCTM/compression/MG2Encoder.cs" Line="9" Column="2" />
+      <File FileName="OpenCTM/compression/RawEncoder.cs" Line="16" Column="2" />
+      <File FileName="OpenCTM/compression/MG1Decoder.cs" Line="16" Column="25" />
+      <File FileName="OpenCTM/compression/MG2Decoder.cs" Line="11" Column="21" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
