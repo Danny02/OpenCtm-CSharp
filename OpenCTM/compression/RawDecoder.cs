@@ -4,7 +4,7 @@ namespace OpenCTM
 {
 	public class RawDecoder : MeshDecoder
 	{
-		public static readonly int RAW_TAG = getTagInt("RAW\0");
+		public static readonly int RAW_TAG = CtmFileReader.getTagInt("RAW\0");
 	    public const int FORMAT_VERSION = 5;
 	
 	    public override Mesh decode(MeshInfo minfo, CtmInputStream input)
@@ -18,20 +18,20 @@ namespace OpenCTM
 	        int[] indices = readIntArray(input, minfo.getTriangleCount(), 3, false);
 	
 	        checkTag(input.readLittleInt(), VERT);
-	        float[] vertices = readFloatArray(input, vc * CTM_POSITION_ELEMENT_COUNT, 1);
+	        float[] vertices = readFloatArray(input, vc * Mesh.CTM_POSITION_ELEMENT_COUNT, 1);
 	
 	        float[] normals = null;
 	        if (minfo.hasNormals()) {
 	            checkTag(input.readLittleInt(), NORM);
-	            normals = readFloatArray(input, vc, CTM_NORMAL_ELEMENT_COUNT);
+	            normals = readFloatArray(input, vc, Mesh.CTM_NORMAL_ELEMENT_COUNT);
 	        }
 	
-	        for (int i = 0; i < tex.length; ++i) {
+	        for (int i = 0; i < tex.Length; ++i) {
 	            checkTag(input.readLittleInt(), TEXC);
 	            tex[i] = readUVData(vc, input);
 	        }
 	
-	        for (int i = 0; i < att.length; ++i) {
+	        for (int i = 0; i < att.Length; ++i) {
 	            checkTag(input.readLittleInt(), ATTR);
 	            att[i] = readAttrData(vc, input);
 	        }
@@ -42,24 +42,24 @@ namespace OpenCTM
 	    protected void checkTag(int readTag, int expectedTag)
 	    {
 	        if (readTag != expectedTag) {
-	            throw new BadFormatException("Instead of the expected data tag(\"" + unpack(expectedTag)
-	                    + "\") the tag(\"" + unpack(readTag) + "\") was read!");
+	            throw new BadFormatException("Instead of the expected data tag(\"" + CtmFileReader.unpack(expectedTag)
+	                    + "\") the tag(\"" + CtmFileReader.unpack(readTag) + "\") was read!");
 	        }
 	    }
 	
-	    protected int[] readIntArray(CtmInputStream input, int count, int size, boolean signed)
+	    protected virtual int[] readIntArray(CtmInputStream input, int count, int size, bool signed)
 	    {
 	        int[] array = new int[count * size];
-	        for (int i = 0; i < array.length; i++) {
+	        for (int i = 0; i < array.Length; i++) {
 	            array[i] = input.readLittleInt();
 	        }
 	        return array;
 	    }
 	
-	    protected float[] readFloatArray(CtmInputStream input, int count, int size)
+	    protected virtual float[] readFloatArray(CtmInputStream input, int count, int size)
 	    {
 	        float[] array = new float[count * size];
-	        for (int i = 0; i < array.length; i++) {
+	        for (int i = 0; i < array.Length; i++) {
 	            array[i] = input.readLittleFloat();
 	        }
 	        return array;
@@ -69,7 +69,7 @@ namespace OpenCTM
 	    {
 	        String name = input.readString();
 	        String matname = input.readString();
-	        float[] data = readFloatArray(input, vertCount, CTM_UV_ELEMENT_COUNT);
+	        float[] data = readFloatArray(input, vertCount, Mesh.CTM_UV_ELEMENT_COUNT);
 	
 	        return new AttributeData(name, matname, AttributeData.STANDARD_UV_PRECISION, data);
 	    }
@@ -77,7 +77,7 @@ namespace OpenCTM
 	    private AttributeData readAttrData(int vertCount, CtmInputStream input)
 	    {
 	        String name = input.readString();
-	        float[] data = readFloatArray(input, vertCount, CTM_ATTR_ELEMENT_COUNT);
+	        float[] data = readFloatArray(input, vertCount, Mesh.CTM_ATTR_ELEMENT_COUNT);
 	
 	        return new AttributeData(name, null, AttributeData.STANDARD_PRECISION, data);
 	    }

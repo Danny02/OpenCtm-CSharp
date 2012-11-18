@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenCTM", "OpenCTM\OpenCTM.csproj", "{116D9CAC-0C8C-466D-825A-A60BD026A747}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lzma", "LZMA\Lzma.csproj", "{CE33DF18-F9C8-4D6F-9057-DBB4DB96E973}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -13,6 +15,10 @@ Global
 		{116D9CAC-0C8C-466D-825A-A60BD026A747}.Debug|x86.Build.0 = Debug|x86
 		{116D9CAC-0C8C-466D-825A-A60BD026A747}.Release|x86.ActiveCfg = Release|x86
 		{116D9CAC-0C8C-466D-825A-A60BD026A747}.Release|x86.Build.0 = Release|x86
+		{CE33DF18-F9C8-4D6F-9057-DBB4DB96E973}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CE33DF18-F9C8-4D6F-9057-DBB4DB96E973}.Debug|x86.Build.0 = Debug|Any CPU
+		{CE33DF18-F9C8-4D6F-9057-DBB4DB96E973}.Release|x86.ActiveCfg = Release|Any CPU
+		{CE33DF18-F9C8-4D6F-9057-DBB4DB96E973}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = OpenCTM\OpenCTM.csproj

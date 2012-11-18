@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{CE33DF18-F9C8-4D6F-9057-DBB4DB96E973}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>LzmaAlone</RootNamespace>
+    <AssemblyName>Lzma#</AssemblyName>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.cs</LastGenOutput>
+    </None>
+    <Compile Include="LZ\IMatchFinder.cs" />
+    <Compile Include="LZ\LzBinTree.cs" />
+    <Compile Include="LZ\LzInWindow.cs" />
+    <Compile Include="LZ\LzOutWindow.cs" />
+    <Compile Include="LZMA\LzmaBase.cs" />
+    <Compile Include="LZMA\LzmaDecoder.cs" />
+    <Compile Include="LZMA\LzmaEncoder.cs" />
+    <Compile Include="RangeCoder\RangeCoder.cs" />
+    <Compile Include="RangeCoder\RangeCoderBit.cs" />
+    <Compile Include="RangeCoder\RangeCoderBitTree.cs" />
+    <Compile Include="ICoder.cs" />
+    <Compile Include="Common\CRC.cs" />
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ItemGroup>
+    <Folder Include="LZ\" />
+    <Folder Include="LZMA\" />
+    <Folder Include="RangeCoder\" />
+    <Folder Include="Common\" />
+  </ItemGroup>
+</Project>

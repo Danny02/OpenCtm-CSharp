@@ -8,7 +8,6 @@ namespace OpenCTM
 		public static readonly int OCTM = getTagInt("OCTM");
 		
 		private static readonly MeshDecoder[] DECODER = new MeshDecoder[]{new RawDecoder()};
-	    private Mesh mesh;
 	    private String comment;
 	    private readonly CtmInputStream input;
 	    private bool decoded;

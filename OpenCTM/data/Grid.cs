@@ -25,7 +25,7 @@ namespace OpenCTM
 	        this.division = division;
 	    }
 	
-	    public void writeToStream(CtmOutputstream output){
+	    public void writeToStream(CtmOutputStream output){
 	        output.writeLittleFloatArray(min);
 	        output.writeLittleFloatArray(max);
 	        output.writeLittleIntArray(division);

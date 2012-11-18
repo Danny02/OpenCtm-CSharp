@@ -51,7 +51,6 @@ namespace OpenCTM
 	        float totalLength = 0;
 	        int edgeCount = 0;
 	
-	        Mesh m = null; //TODO mesh zugriff
 	        for (int i = 0; i < getTriangleCount(); ++i) {
 	            int p1, p2;
 	            p1 = indices[i * 3 + 2] * 3;

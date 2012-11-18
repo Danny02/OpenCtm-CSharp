@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
+using SevenZip.Compression.LZMA;
 
 namespace OpenCTM
 {
@@ -80,54 +81,57 @@ namespace OpenCTM
 	        return array;
 	    }
 	
-//	    public int[] readPackedInts(int count, int size, bool signed)  {
-//	        int[] data = new int[count * size];
-//	        byte[] tmp = readCompressedData(count * size * 4);//a Integer is 4 bytes
-//	        // Convert interleaved array to integers
-//	        for (int i = 0; i < count; ++i) {
-//	            for (int k = 0; k < size; ++k) {
-//	                int value = interleavedRetrive(tmp, i + k * count, count * size);
-//	                if (signed) {
-//	                    long x = ((long) value) & 0xFFFFFFFFL;//not sure if correct
-//	                    value = (x & 1) != 0 ? -(int) ((x + 1) >> 1) : (int) (x >> 1);
-//	                }
-//	                data[i * size + k] = value;
-//	            }
-//	        }
-//	        return data;
-//	    }
-//	
-//	    public float[] readPackedFloats(int count, int size)  {
-//	        float[] data = new float[count * size];
-//	        byte[] tmp = readCompressedData(count * size * 4);//a Float is 4 bytes
-//	        // Convert interleaved array to floats
-//	        for (int i = 0; i < count; ++i) {
-//	            for (int k = 0; k < size; ++k) {
-//	                int value = interleavedRetrive(tmp, i + k * count, count * size);
-//	                data[i * size + k] = Float.intBitsToFloat(value);
-//	            }
-//	        }
-//	
-//	        return data;
-//	    }
+	    public int[] readPackedInts(int count, int size, bool signed)  {
+	        int[] data = new int[count * size];
+	        byte[] tmp = readCompressedData(count * size * 4);//a Integer is 4 bytes
+	        // Convert interleaved array to integers
+	        for (int i = 0; i < count; ++i) {
+	            for (int k = 0; k < size; ++k) {
+	                int val = interleavedRetrive(tmp, i + k * count, count * size);
+	                if (signed) {
+	                    long x = ((long) val) & 0xFFFFFFFFL;//not sure if correct
+	                    val = (x & 1) != 0 ? -(int) ((x + 1) >> 1) : (int) (x >> 1);
+	                }
+	                data[i * size + k] = val;
+	            }
+	        }
+	        return data;
+	    }
+	
+	    public float[] readPackedFloats(int count, int size)  {
+	        float[] data = new float[count * size];
+	        byte[] tmp = readCompressedData(count * size * 4);//a Float is 4 bytes
+	        // Convert interleaved array to floats
+	        for (int i = 0; i < count; ++i) {
+	            for (int k = 0; k < size; ++k) {
+					IntFloat a = new IntFloat();
+	                a.IntValue = interleavedRetrive(tmp, i + k * count, count * size);
+	                data[i * size + k] = a.FloatValue;
+	            }
+	        }
+	
+	        return data;
+	    }
 
-//    public byte[] readCompressedData(int size) throws IOException {
-//        int packedSize = readLittleInt();
-//        byte[] packed = new byte[packedSize + 5];//lzma properties are 5 bytes big
-//        if (read(packed) == -1) {
-//            throw new IOException("End of file reached while reading!");
-//        }
-//        
-//        ByteArrayOutputStream bout = new ByteArrayOutputStream(size);
-//        
-//        CustomCoder coder = new CustomCoder(size);
-//        coder.code(new ByteArrayInputStream(packed), bout);
-//                
-//        byte[] data = bout.toByteArray();
-//        assert data.length == size;
-//        
-//        return data;
-//    }
+	    public byte[] readCompressedData(int size){
+	            Decoder decoder = new Decoder();
+	            
+	            MemoryStream newOutStream = new MemoryStream();
+				
+	            int compressedSize = readLittleInt();
+				
+	            byte[] properties = new byte[5];
+	            if (Read(properties, 0, 5) != 5)
+	                throw new IOException("End of file reached while reading!");
+				
+	            decoder.SetDecoderProperties(properties);
+	
+	            decoder.Code(BaseStream, newOutStream, compressedSize, -1, null);
+	
+	            byte[] b = newOutStream.ToArray();
+	
+	            return b;
+	    }
 
 	    public static int interleavedRetrive(byte[] data, int offset, int stride) {
 	        byte b1 = data[offset + 3 * stride];

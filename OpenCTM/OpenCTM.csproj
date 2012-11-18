@@ -41,7 +41,6 @@
     <Compile Include="errorhandling\EOFException.cs" />
     <Compile Include="errorhandling\BadFormatException.cs" />
     <Compile Include="errorhandling\InvalidDataException.cs" />
-    <Compile Include="io\CtmOutputstream.cs" />
     <Compile Include="data\AttributeData.cs" />
     <Compile Include="data\Mesh.cs" />
     <Compile Include="data\SortableVertex.cs" />
@@ -51,6 +50,13 @@
     <Compile Include="io\MeshInfo.cs" />
     <Compile Include="io\CtmFileReader.cs" />
     <Compile Include="compression\RawDecoder.cs" />
+    <Compile Include="io\CtmFileWriter.cs" />
+    <Compile Include="compression\RawEncoder.cs" />
+    <Compile Include="compression\MG1Decoder.cs" />
+    <Compile Include="compression\MG2Decoder.cs" />
+    <Compile Include="compression\MG1Encoder.cs" />
+    <Compile Include="compression\MG2Encoder.cs" />
+    <Compile Include="io\CtmOutputStream.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -65,5 +71,11 @@
     <Folder Include="data\" />
     <Folder Include="io\" />
     <Folder Include="errorhandling\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LZMA\Lzma.csproj">
+      <Project>{CE33DF18-F9C8-4D6F-9057-DBB4DB96E973}</Project>
+      <Name>Lzma</Name>
+    </ProjectReference>
   </ItemGroup>
 </Project>
