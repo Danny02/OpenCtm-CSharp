@@ -46,7 +46,7 @@ namespace OpenCTM
 	        if (precision.Equals(other.precision)) {
 	            return false;
 	        }
-	        if (!Array.Equals(this.values, other.values)) {
+	        if (!Mesh.ArrayEquals(this.values, other.values)) {
 	            return false;
 	        }
 	        return true;

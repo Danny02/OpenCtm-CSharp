@@ -169,13 +169,13 @@ namespace OpenCTM
 			if (other == null) {
 	            return false;
 	        }			
-	        if (!Array.Equals(this.vertices, other.vertices)) {
+	        if (!ArrayEquals(this.vertices, other.vertices)) {
 	            return false;
 	        }
-	        if (!Array.Equals(this.normals, other.normals)) {
+	        if (!ArrayEquals(this.normals, other.normals)) {
 	            return false;
 	        }
-	        if (!Array.Equals(this.indices, other.indices)) {
+	        if (!ArrayEquals(this.indices, other.indices)) {
 	            return false;
 	        }
 	        if (!DeepEquals(this.texcoordinates, other.texcoordinates)) {
@@ -186,6 +186,24 @@ namespace OpenCTM
 	        }
 	        return true;
 	    }
+		
+		public static bool ArrayEquals<T>(T[] a, T[]b)
+		{
+			if(a==null)
+			{
+				return b==null;
+			}
+			
+			if(b==null)
+				return false;
+			
+			for(int i=0; i<a.Length; ++i)
+			{
+				if(!a[i].Equals(b[i]))
+					return false;
+			}
+			return true;
+		}
 		
 		public static bool DeepEquals(object[] a, object[] b)
 		{

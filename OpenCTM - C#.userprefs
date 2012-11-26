@@ -1,17 +1,49 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="OpenCTM/compression/MG2Encoder.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CtmTests/ReadTests.cs">
     <Files>
-      <File FileName="OpenCTM/compression/RawDecoder.cs" Line="59" Column="24" />
-      <File FileName="OpenCTM/compression/MG1Encoder.cs" Line="5" Column="32" />
-      <File FileName="OpenCTM/compression/MG2Encoder.cs" Line="9" Column="2" />
-      <File FileName="OpenCTM/compression/RawEncoder.cs" Line="16" Column="2" />
-      <File FileName="OpenCTM/compression/MG1Decoder.cs" Line="16" Column="25" />
-      <File FileName="OpenCTM/compression/MG2Decoder.cs" Line="11" Column="21" />
+      <File FileName="CtmTests/ReadTests.cs" Line="36" Column="9" />
+      <File FileName="OpenCTM/io/CtmOutputStream.cs" Line="32" Column="40" />
+      <File FileName="OpenCTM/io/CtmInputStream.cs" Line="127" Column="5" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="CtmTests" expanded="True" selected="True">
+            <Node name="resources" expanded="True" />
+          </Node>
+          <Node name="Lzma" expanded="True">
+            <Node name="LZ" expanded="True" />
+          </Node>
+          <Node name="OpenCTM" expanded="True">
+            <Node name="data" expanded="True" />
+            <Node name="io" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State expanded="True" selected="True" />
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+      <Pad Id="MonoDevelop.NUnit.TestPad">
+        <State expanded="True" selected="True">
+          <Node name="CtmTests" expanded="True">
+            <Node name="CtmTests" expanded="True">
+              <Node name="ReadTests" expanded="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/daniel/Projekte/OpenCTM - C#/OpenCTM/data/Mesh.cs" line="168" />
+      <Breakpoint file="/home/daniel/Projekte/OpenCTM - C#/OpenCTM/io/CtmInputStream.cs" line="130" />
+      <Breakpoint file="/home/daniel/Projekte/OpenCTM - C#/CtmTests/ReadTests.cs" line="33" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

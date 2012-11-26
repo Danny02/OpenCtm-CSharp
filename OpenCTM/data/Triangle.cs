@@ -44,7 +44,7 @@ namespace OpenCTM
 	            return false;
 	        }
 			
-	        return Array.Equals(this.elements, other.elements);
+	        return Mesh.ArrayEquals(this.elements, other.elements);
 	    }
 	
 	    public override int GetHashCode()

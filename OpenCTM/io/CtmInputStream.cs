@@ -31,10 +31,10 @@ namespace OpenCTM
 	     * @return < p/> @throws IOException
 	     */
 	    public int readLittleInt()  {
-	        int ch1 = Read();
-	        int ch2 = Read();
-	        int ch3 = Read();
-	        int ch4 = Read();
+	        int ch1 = ReadByte();
+	        int ch2 = ReadByte();
+	        int ch3 = ReadByte();
+	        int ch4 = ReadByte();
 	        if ((ch1 | ch2 | ch3 | ch4) < 0) {
 	            throw new EOFException();
 	        }
@@ -119,10 +119,11 @@ namespace OpenCTM
 	            MemoryStream newOutStream = new MemoryStream();
 				
 	            int compressedSize = readLittleInt();
-				
-	            byte[] properties = new byte[5];
-	            if (Read(properties, 0, 5) != 5)
-	                throw new IOException("End of file reached while reading!");
+			
+				byte[] properties = ReadBytes(5);
+	            if (properties.Length == 0) {
+	                throw new IOException("End of file reached while parsing the file!");
+	            }
 				
 	            decoder.SetDecoderProperties(properties);
 	
