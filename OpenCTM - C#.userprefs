@@ -1,23 +1,26 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CtmTests/ReadTests.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="OpenCTM/io/CtmInputStream.cs">
     <Files>
       <File FileName="CtmTests/ReadTests.cs" Line="36" Column="9" />
       <File FileName="OpenCTM/io/CtmOutputStream.cs" Line="32" Column="40" />
-      <File FileName="OpenCTM/io/CtmInputStream.cs" Line="127" Column="5" />
+      <File FileName="OpenCTM/io/CtmInputStream.cs" Line="128" Column="55" />
+      <File FileName="LZMA/LZMA/LzmaDecoder.cs" Line="337" Column="61" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CtmTests" expanded="True" selected="True">
+          <Node name="CtmTests" expanded="True">
             <Node name="resources" expanded="True" />
           </Node>
           <Node name="Lzma" expanded="True">
-            <Node name="LZ" expanded="True" />
+            <Node name="LZMA" expanded="True" />
           </Node>
           <Node name="OpenCTM" expanded="True">
             <Node name="data" expanded="True" />
-            <Node name="io" expanded="True" />
+            <Node name="io" expanded="True">
+              <Node name="CtmInputStream.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>
@@ -28,10 +31,12 @@
         <State />
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
-        <State expanded="True" selected="True">
+        <State expanded="True">
           <Node name="CtmTests" expanded="True">
             <Node name="CtmTests" expanded="True">
-              <Node name="ReadTests" expanded="True" />
+              <Node name="ReadTests" expanded="True">
+                <Node name="readTest" selected="True" />
+              </Node>
             </Node>
           </Node>
         </State>

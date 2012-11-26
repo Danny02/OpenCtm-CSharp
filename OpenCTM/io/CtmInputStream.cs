@@ -127,7 +127,7 @@ namespace OpenCTM
 				
 	            decoder.SetDecoderProperties(properties);
 	
-	            decoder.Code(BaseStream, newOutStream, compressedSize, -1, null);
+	            decoder.Code(BaseStream, newOutStream, compressedSize, size, null);
 	
 	            byte[] b = newOutStream.ToArray();
 	
