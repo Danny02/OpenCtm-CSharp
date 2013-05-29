@@ -42,8 +42,6 @@ namespace CtmTests
 			Mesh m = reader.decode();
 			
 			m.checkIntegrity();
-			
-			Console.WriteLine(m.getTriangleCount());
 		}
 		
 		private void testEncoder(MeshEncoder encoder)
@@ -61,6 +59,10 @@ namespace CtmTests
 			
 			if(encoder as MG2Encoder == null)
 				Assert.IsTrue(quad.Equals(m));
+			else{
+				Assert.IsTrue(quad.getTriangleCount() == m.getTriangleCount());
+				Assert.IsTrue(quad.getVertexCount() == m.getVertexCount());
+			}
 		}
 	}
 }
