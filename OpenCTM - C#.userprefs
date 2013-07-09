@@ -2,25 +2,28 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.Workbench ActiveDocument="OpenCTM/io/CtmInputStream.cs">
     <Files>
-      <File FileName="CtmTests/ReadTests.cs" Line="36" Column="9" />
-      <File FileName="OpenCTM/io/CtmOutputStream.cs" Line="32" Column="40" />
-      <File FileName="OpenCTM/io/CtmInputStream.cs" Line="128" Column="55" />
-      <File FileName="LZMA/LZMA/LzmaDecoder.cs" Line="337" Column="61" />
+      <File FileName="CtmTests/ReadTests.cs" Line="27" Column="34" />
+      <File FileName="CtmTests/CTMStreamTests.cs" Line="26" Column="45" />
+      <File FileName="OpenCTM/compression/RawDecoder.cs" Line="18" Column="1" />
+      <File FileName="OpenCTM/compression/MG1Encoder.cs" Line="22" Column="1" />
+      <File FileName="OpenCTM/compression/RawEncoder.cs" Line="10" Column="2" />
+      <File FileName="OpenCTM/io/CtmInputStream.cs" Line="136" Column="4" />
+      <File FileName="OpenCTM/io/CtmOutputStream.cs" Line="150" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="CtmTests" expanded="True">
+          <Node name="CtmTests" expanded="True" selected="True">
             <Node name="resources" expanded="True" />
           </Node>
           <Node name="Lzma" expanded="True">
+            <Node name="LZ" expanded="True" />
             <Node name="LZMA" expanded="True" />
           </Node>
           <Node name="OpenCTM" expanded="True">
+            <Node name="compression" expanded="True" />
             <Node name="data" expanded="True" />
-            <Node name="io" expanded="True">
-              <Node name="CtmInputStream.cs" selected="True" />
-            </Node>
+            <Node name="io" expanded="True" />
           </Node>
         </State>
       </Pad>
@@ -28,15 +31,15 @@
         <State expanded="True" selected="True" />
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
+        <State>
+          <Value>this.BaseStream.position</Value>
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State expanded="True">
           <Node name="CtmTests" expanded="True">
             <Node name="CtmTests" expanded="True">
-              <Node name="ReadTests" expanded="True">
-                <Node name="readTest" selected="True" />
-              </Node>
+              <Node name="ReadTests" expanded="True" />
             </Node>
           </Node>
         </State>
@@ -48,6 +51,8 @@
       <Breakpoint file="/home/daniel/Projekte/OpenCTM - C#/OpenCTM/data/Mesh.cs" line="168" />
       <Breakpoint file="/home/daniel/Projekte/OpenCTM - C#/OpenCTM/io/CtmInputStream.cs" line="130" />
       <Breakpoint file="/home/daniel/Projekte/OpenCTM - C#/CtmTests/ReadTests.cs" line="33" />
+      <Breakpoint file="/home/daniel/Projekte/OpenCTM#/OpenCTM/compression/RawEncoder.cs" line="9" />
+      <Breakpoint file="/home/daniel/Projekte/OpenCTM#/OpenCTM/compression/RawDecoder.cs" line="12" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
