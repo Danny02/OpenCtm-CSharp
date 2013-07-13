@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace OpenCTM
 {
@@ -17,7 +18,12 @@ namespace OpenCTM
 	    public readonly AttributeData[] attributs;
 	
 	    public Mesh(float[] vertices, float[] normals, int[] indices, AttributeData[] texcoordinates, AttributeData[] attributs) {
-	        this.vertices = vertices;
+	        Debug.Assert(vertices != null);
+			Debug.Assert(indices != null);
+			Debug.Assert(texcoordinates != null);
+			Debug.Assert(attributs != null);
+			
+			this.vertices = vertices;
 	        this.normals = normals;
 	        this.indices = indices;
 	        this.texcoordinates = texcoordinates;

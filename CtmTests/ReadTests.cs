@@ -16,8 +16,14 @@ namespace CtmTests
 													1,1,1,
 													1,1,1,
 													1,1,1};
+		private static AttributeData[] uv = { new AttributeData ("uv1", "test",
+			                                                        AttributeData.STANDARD_UV_PRECISION, 
+			                                                        new float[]{0.0034, 0.1,
+																				0.8, 1.0, 
+																				0.351, 0.612,
+																				0.1229, 0.91224}) };
 		private static int[] ind = new int[]{0,1,2,0,2,3};
-		private static Mesh quad = new Mesh (vert, normals, ind, new AttributeData[0], new AttributeData[0]);
+		private static Mesh quad = new Mesh (vert, normals, ind, uv, new AttributeData[0]);
 		
 		[Test]
 		public void rawTest ()
