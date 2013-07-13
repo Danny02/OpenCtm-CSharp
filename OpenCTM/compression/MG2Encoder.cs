@@ -4,17 +4,14 @@ namespace OpenCTM
 {
 	public class MG2Encoder : MG1Encoder
 	{
-		public static readonly float STANDARD_NORMAL_PRECISION = 1f / 256f;
-	    public static readonly float STANDARD_VERTEX_PRECISION = 1f / 1024f;
+		public const float STANDARD_NORMAL_PRECISION = 1f / 256f;
+	    public const float STANDARD_VERTEX_PRECISION = 1f / 1024f;
 	
-	    private readonly float vertexPrecision, normalPrecision;
+	    public readonly float vertexPrecision, normalPrecision;
 	
-	    public MG2Encoder(float vertexPrecision, float normalPrecision) {
+	    public MG2Encoder(float vertexPrecision = STANDARD_VERTEX_PRECISION, float normalPrecision = STANDARD_NORMAL_PRECISION) {
 	        this.vertexPrecision = vertexPrecision;
 	        this.normalPrecision = normalPrecision;
-	    }
-	
-	    public MG2Encoder() : this(STANDARD_VERTEX_PRECISION, STANDARD_NORMAL_PRECISION){
 	    }
 	
 	    public override int getTag() {
@@ -84,7 +81,7 @@ namespace OpenCTM
 	    /**
 	     * Setup the 3D space subdivision grid.
 	     */
-	    private Grid setupGrid(float[] vertices) {
+	    public Grid setupGrid(float[] vertices) {
 	        int vc = vertices.Length / 3;
 	        //CTM_POSITION_ELEMENT_COUNT == 3
 	        // Calculate the mesh boundinggrid. box
@@ -154,7 +151,7 @@ namespace OpenCTM
 	        return idx[0] + grid.getDivision()[0] * (idx[1] + grid.getDivision()[1] * idx[2]);
 	    }
 	
-	    private SortableVertex[] sortVertices(Grid grid, float[] v) {
+	    public SortableVertex[] sortVertices(Grid grid, float[] v) {
 	        // Prepare sort vertex array
 	        int vc = v.Length / Mesh.CTM_POSITION_ELEMENT_COUNT;
 	        SortableVertex[] sortVertices = new SortableVertex[vc];
