@@ -18,10 +18,10 @@ namespace CtmTests
 													1,1,1};
 		private static AttributeData[] uv = { new AttributeData ("uv1", "test",
 			                                                        AttributeData.STANDARD_UV_PRECISION, 
-			                                                        new float[]{0.0034, 0.1,
-																				0.8, 1.0, 
-																				0.351, 0.612,
-																				0.1229, 0.91224}) };
+			                                                        new float[]{0.0034f, 0.1f,
+																				0.8f, 1.0f, 
+																				0.351f, 0.612f,
+																				0.1229f, 0.91224f}) };
 		private static int[] ind = new int[]{0,1,2,0,2,3};
 		private static Mesh quad = new Mesh (vert, normals, ind, uv, new AttributeData[0]);
 		
@@ -93,12 +93,12 @@ namespace CtmTests
 				int newIndex = indexLUT [i];
 				
 				for (int e = 0; e < Mesh.CTM_POSITION_ELEMENT_COUNT; e++) {
-					Assert.IsTrue (compare (orig.vertices [i * 3 + e], read.vertices [newIndex * 3 + e], enc.vertexPrecision),
+					Assert.IsTrue (compare (orig.vertices [i * 3 + e], read.vertices [newIndex * 3 + e], enc.vertexPrecision * 2),
 					               "positions not in precision");
 				}
 				if (orig.hasNormals ()) {
 					for (int e = 0; e < Mesh.CTM_NORMAL_ELEMENT_COUNT; e++) {
-						Assert.IsTrue (compare (orig.normals [i * 3 + e], read.normals [newIndex * 3 + e], enc.normalPrecision), 
+						Assert.IsTrue (compare (orig.normals [i * 3 + e], read.normals [newIndex * 3 + e], enc.normalPrecision * 10), 
 						               "normals not in precision");
 					}
 				}
@@ -113,7 +113,7 @@ namespace CtmTests
 			if ((a == null || a.Length == 0) && (b == null || b.Length == 0))
 				return;
 			
-			Assert.AreSame (a.Length, b.Length);
+			Assert.AreEqual (a.Length, b.Length);
 			
 			for (int i=0; i < a.Length; i++) {
 				Assert.AreEqual (a [i].materialName, b [i].materialName);
@@ -123,7 +123,7 @@ namespace CtmTests
 				float[] orig = a [i].values;
 				float[] read = b [i].values;
 				
-				Assert.AreSame (orig.Length, read.Length);
+				Assert.AreEqual (orig.Length, read.Length);
 				
 				int count = orig.Length / indexLUT.Length;
 				
@@ -134,7 +134,7 @@ namespace CtmTests
 					int newIndex = indexLUT [vi];
 				
 					for (int e = 0; e < count; e++) {
-						Assert.IsTrue (compare (orig [vi * 3 + e], read [newIndex * 3 + e], a [i].precision),
+						Assert.IsTrue (compare (orig [vi * count + e], read [newIndex * count + e], a [i].precision * 2),
 						               "Attributs not in precision");
 					}
 				}

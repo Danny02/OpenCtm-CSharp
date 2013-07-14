@@ -43,7 +43,7 @@ namespace OpenCTM
 	        if (!materialName.Equals(other.materialName)) {
 	            return false;
 	        }
-	        if (precision.Equals(other.precision)) {
+	        if (precision != other.precision) {
 	            return false;
 	        }
 	        if (!Mesh.ArrayEquals(this.values, other.values)) {

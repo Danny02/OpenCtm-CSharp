@@ -217,7 +217,7 @@ namespace OpenCTM
 				return false;
 			for(int i=0; i<a.Length; ++i)
 			{
-				if(!a[i].Equals(b[1]))
+				if(!a[i].Equals(b[i]))
 					return false;
 			}
 			return true;
